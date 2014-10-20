@@ -3,10 +3,17 @@ layout: default
 title: 我的Blog
 ---
 
-<h2>{{ page.title }}</h2>
-<p>最新文章</p>
-<ul>
+<div class="wp clearfix">
+	<div class="left_wp fl">
 	{% for post in site.posts %}
-		<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+		<div class="content">
+			<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+			<article>{{ post.description }}</article>
+			<p class="clearfix mt10">
+				<span class="date fl">{{ post.date | date: "%F" }}</span>
+				<a class="more fr" href="{{ site.baseurl }}{{ post.url }}">更多&gt;&gt;</a>
+			</p>
+		</div><!--/content-->
 	{% endfor %}
-</ul>
+	</div><!--/left_wp-->
+</div><!--/wp-->
