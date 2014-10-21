@@ -8,7 +8,7 @@ title: 我的Blog
 	{% for post in site.posts %}
 		<div class="content">
 			<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-			<article>{{ post.description }}</article>
+			<article>{{ post.content }}</article>
 			<p class="clearfix mt10">
 				<span class="date fl">{{ post.date | date: "%F" }}</span>
 				<a class="more fr" href="{{ site.baseurl }}{{ post.url }}">更多»</a>
