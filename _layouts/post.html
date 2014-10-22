@@ -5,7 +5,7 @@ layout: default
 <div class="wp">
 	<div class="post_wp">
 		<h2 class="post_title">{{ page.title }}</h2>
-		<p class="post_info tc"><span>作者：{{ page.author }}</span><span>日期：{{ page.date | date: "%F" }}</span></p>
+		<p class="post_info tc"><span>作者：<em>{{ page.author }}</em></span><span>日期：{{ page.date | date: "%F" }}</span></p>
 		<article id="postCont" class="post_content">
 			{{ content }}
 		</article>
