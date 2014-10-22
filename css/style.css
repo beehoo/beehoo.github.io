@@ -37,3 +37,5 @@ a:hover {text-decoration:none;}
 .blogger_name {font-family:'Pacifico',tahoma,arial,"microsoft YaHei"; font-size:18px; margin-top:10px;}
 .footer {margin:30px auto; color:#999;}
 .footer a {color:#999;}
+.low_box {width:790px; height:550px; margin:50px auto;}
+.low_box p {margin-top:10px;}
