@@ -7,7 +7,7 @@ title: "壁虎的尾巴"
 	<div class="left_wp fl">
 	{% for post in site.posts %}
 		<div class="content">
-			<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+			<h2><a title="{{ post.title }}" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 			<article>{{ post.content }}</article>
 			<p class="ft_tags clearfix mt10">
 				<span class="date fl">{{ post.date | date: "%F" }}</span>
@@ -21,7 +21,7 @@ title: "壁虎的尾巴"
 		<div class="bloggerInfo">
 			<div class="blogger_img"><img alt="" src="{{ "/images/user_img.png" | prepend:site.baseurl }}" /></div>
 			<p class="blogger_name tc">Beehoo</p>
-			<p class="mt10 lh180">今日吐槽：卧槽找一个好看合适的网页背景真尼玛烦啊！</p>
+			<p class="mt10 lh180">今日吐槽：设计是一件很费脑子的事情</p>
 		</div><!--/bloggerInfo-->
 	</div><!--/right_wp-->
 </div><!--/wp-->

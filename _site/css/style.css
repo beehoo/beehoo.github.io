@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import url(http://fonts.useso.com/css?family=Pacifico);
 
-html {background:#f5f5f5;}
+html {background:url(../images/bg.png) #f5f5f5 repeat;}
 body {font-family:"microsoft YaHei"; color:#333;}
 a:hover {text-decoration:none;}
 ::-moz-selection {background:#009a61; color:#fff;}
@@ -13,14 +13,15 @@ a:hover {text-decoration:none;}
 .nav li {float:left; margin-left:50px; line-height:50px;}
 .nav a {color:#fff; font-size:16px;}
 .left_wp {width:720px;}
-.content {margin-bottom:30px; padding:15px; background:#fff; border:3px solid #eee; border-radius:5px;}
+.content {margin-bottom:30px; padding:15px; background:#fff; border-radius:5px; box-shadow:0 0 8px #aaa inset;}
 .content h2 {font-size:18px; background:url(../images/title_bg.png) no-repeat left top; padding-left:80px; height:40px;}
 .content h2 a {color:#333; transition:color .5s;}
 .content h2 a:hover {color:#009a61; transition:color .5s;}
 .content article {line-height:180%; font-size:14px; padding-left:80px;}
 .ft_tags {padding-left:80px;}
-.content .date {color:#999;}
-.content .more {color:#009a61;}
+.content .date, .content .more {color:#009a61; padding-left:20px;}
+.content .date {background:url(../images/date_icon.png) no-repeat left center;}
+.content .more {background:url(../images/more_icon.png) no-repeat left center;}
 .post_title {font-size:24px; margin-bottom:20px; text-align:center;}
 .post_content p {line-height:180%; font-size:16px; text-indent:2em; margin-bottom:10px;}
 .post_info {color:#999; font-size:14px; margin-bottom:20px;}
@@ -29,8 +30,10 @@ a:hover {text-decoration:none;}
 .share_to {display:inline-block; zoom:1; *display:inline; margin:6px 6px 6px 0;}
 .ds-powered-by {display:none;}
 .right_wp {width:250px;}
-.bloggerInfo {border:3px solid #eee; border-radius:5px; padding:20px; background:#fff;}
+.bloggerInfo {border-radius:5px; padding:20px; background:#fff; box-shadow:0 0 8px #aaa inset;}
 .blogger_img {width:80px; height:80px; border:5px solid rgba(200,200,200,.5); border-radius:50%; margin:0 auto; -webkit-transform:scale(1,1); transform:scale(1,1); transition:all .8s;}
 .blogger_img img {border-radius:50%; width:100%; height:100%; box-shadow:0 0 3px #000;}
 .blogger_img:hover {-webkit-transform:scale(1.2,1.2); transform:scale(1.2,1.2); transition:all .8s;}
 .blogger_name {font-family:'Pacifico',tahoma,arial,"microsoft YaHei"; font-size:18px; margin-top:10px;}
+.footer {margin:30px auto; color:#999;}
+.footer a {color:#999;}

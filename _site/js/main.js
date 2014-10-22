@@ -8,6 +8,8 @@ $(function(){
 		if(_n > 200) { 
 			_this.html(_words);		
 		};
-	});	
+	});
+
+	$(".wp").css("min-height",$(window).height() - 157);
 	
 });
