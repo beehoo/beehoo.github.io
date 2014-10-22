@@ -8,7 +8,7 @@ a:hover {text-decoration:none;}
 ::selection {background:#009a61; color:#fff;}
 .tag {color:#009a61;}
 .header {height:50px; background:#009a61; color:#fff; margin-bottom:30px;border-bottom:1px solid #00915a; box-shadow:0 3px 5px rgba(95,95,95,.5);}
-.wp {width:1000px; margin:0 auto;}
+.hd_wp, .wp {width:1000px; margin:0 auto;}
 .logo {font-size:28px; font-family:'Pacifico',tahoma,arial,"microsoft YaHei"; color:#fff; line-height:50px; background:url(../images/logo.png) no-repeat left center; padding-left:60px;}
 .nav li {float:left; margin-left:50px; line-height:50px;}
 .nav a {color:#fff; font-size:16px;}
