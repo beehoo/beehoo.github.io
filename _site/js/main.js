@@ -1,8 +1,3 @@
-//判断浏览器
-if($.browser.msie && $.browser.version < 9) {
-	window.location.href = "/low.html";
-};
-
 $(function(){
 
 	//首页文章显示截取字数
@@ -24,6 +19,11 @@ $(function(){
 		var _this = $(this);
 		_this.addClass("none");
 		_this.siblings("img.none").removeClass("none");
-	});	
+	});
+
+	//判断浏览器
+	if($.browser.msie && $.browser.version < 9) {
+		window.location.href = "/low.html";
+	};
 
 });
