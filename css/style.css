@@ -1,6 +1,24 @@
 @charset "utf-8";
 @import url(http://fonts.useso.com/css?family=Pacifico);
 
+/* 声明字体 */
+@font-face {
+	font-family: 'iconfont';
+    src: url('fonts/iconfont.eot'); /* IE9*/
+    src: url('fonts/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('fonts/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('fonts/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('fonts/iconfont.svg#uxiconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 html {background:url(../images/bg.png) #f5f5f5 repeat;}
 body {font-family:"microsoft YaHei"; color:#333;}
 a:hover {text-decoration:none;}
@@ -30,11 +48,15 @@ a:hover {text-decoration:none;}
 .share_to {display:inline-block; zoom:1; *display:inline; margin:6px 6px 6px 0;}
 .ds-powered-by {display:none;}
 .right_wp {width:250px;}
-.bloggerInfo {border-radius:5px; padding:20px; background:#fff; box-shadow:0 0 8px #aaa inset;}
-.blogger_img {display:block; width:80px; height:80px; border:5px solid rgba(200,200,200,.5); border-radius:50%; margin:0 auto; -webkit-transform:scale(1,1); transform:scale(1,1); transition:all .8s;}
+.blg_box {border-radius:5px; padding:15px; background:#fff; box-shadow:0 0 8px #aaa inset;}
+.blogger_img {width:70px; height:70px; border:5px solid rgba(200,200,200,.5); border-radius:50%; -webkit-transform:scale(1,1); transform:scale(1,1); transition:all .8s;}
 .blogger_img img {border-radius:50%; width:100%; height:100%; box-shadow:0 0 3px #000;}
 .blogger_img:hover {-webkit-transform:scale(1.2,1.2); transform:scale(1.2,1.2); transition:all .8s;}
-.blogger_name {font-family:'Pacifico',tahoma,arial,"microsoft YaHei"; font-size:18px; margin-top:10px;}
+.info_box {width:130px;}
+.blogger_name {font-family:'Pacifico',tahoma,arial,"microsoft YaHei"; font-size:18px;}
+.blogger_intro {line-height:150%;}
+.blogger_sc a {color:#333; margin:0 5px;}
+.blogger_sc a i {font-size:20px;}
 .footer {margin:30px auto; color:#999;}
 .footer a {color:#999;}
 .low_box {width:790px; height:550px; margin:50px auto;}

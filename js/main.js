@@ -19,13 +19,15 @@ $(function(){
 	$(".blogger_img img").dblclick(function(){
 		ck += 1;
 		var _this = $(this);
-		if(ck < 10) {
+		if(ck < 7) {
 			_this.addClass("none");
 			_this.siblings("img.none").removeClass("none");	
 		} else {
 			_this.prop("src","../images/joke.png");
 			$("html, a").css("cursor","none");
 			$(".blogger_img").addClass("shake shake-delay");
+			$(".blogger_intro").text("点一两次就算了你还点没完了啊？！");
+			$("title").html("点你妹！");
 		};				
 	});
 
