@@ -36,4 +36,12 @@ $(function(){
 		window.location.href = "/low.html";
 	};
 
+	//隐藏入口
+	$("#hiddenEntrance").focus().val("");
+	$("#toHomePage").click(function(){
+		if($("#hiddenEntrance").val() == "89757") {
+			$(this).prop("href","http://weibo.com/824624059");
+		};
+	});
+
 });
