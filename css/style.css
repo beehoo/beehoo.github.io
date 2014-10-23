@@ -61,7 +61,7 @@ a:hover {text-decoration:none;}
 .footer a {color:#999;}
 .low_box {width:790px; height:550px; margin:50px auto;}
 .low_box p {margin-top:10px;}
-.prompt_box {width:395px; height:255px; padding:50px 0 0 250px; font-size:14px; position:absolute; margin:auto; top:0; bottom:0; left:0; right:0; background:url(../images/prompt_img.png) no-repeat left top; z-index:10;}
+.prompt_box {width:395px; height:255px; padding:50px 0 0 250px; font-size:14px; position:absolute; margin:auto; top:0; bottom:0; left:0; right:0; background:url(../images/prompt_img.png) no-repeat left top;}
 .prompt_box h3 {font-size:28px; margin:50px 0 30px 0;}
 .prompt_box a {font-size:14px; color:#009a61; margin-left:10px;}
-#hiddenEntrance {width:200px; height:30px; opacity:0; position:absolute; margin:auto; top:0; bottom:0; left:0; right:0; z-index:9;}
+#hiddenEntrance {width:200px; height:30px; opacity:0; position:absolute; left:-200%;}
