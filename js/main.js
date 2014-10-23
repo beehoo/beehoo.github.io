@@ -15,10 +15,18 @@ $(function(){
 	$(".wp").css("min-height",$(window).height() - 157);
 
 	//博主头像切换
+	var ck = 0;
 	$(".blogger_img img").dblclick(function(){
+		ck += 1;
 		var _this = $(this);
-		_this.addClass("none");
-		_this.siblings("img.none").removeClass("none");
+		if(ck < 10) {
+			_this.addClass("none");
+			_this.siblings("img.none").removeClass("none");	
+		} else {
+			_this.prop("src","../images/joke.png");
+			$("html, a").css("cursor","none");
+			$(".blogger_img").addClass("shake shake-delay");
+		};				
 	});
 
 	//判断浏览器
