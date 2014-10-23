@@ -26,7 +26,7 @@ $(function(){
 			_this.prop("src","../images/joke.png");
 			$("html, a").css("cursor","none");
 			$(".blogger_img").addClass("shake shake-delay");
-			$(".blogger_intro").text("点一两次就算了你还点没完了啊？！");
+			$(".blogger_intro").text("你还点上瘾了啊？！鼠标没收！叫你点！");
 			$("title").html("点你妹！");
 		};				
 	});
