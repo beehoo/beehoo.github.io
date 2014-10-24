@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="壁虎的尾巴，Beehoo的尾巴。这里是Beehoo的Blog。">
+	<meta name="renderer" content="webkit">
+	<title>关于Beehoo</title>
+	<link rel="stylesheet" href="/css/base.min.css">
+	<link rel="stylesheet" href="/css/csshake.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="shortcut icon" href="http://beehoo.github.io/images/favicon.ico">
+</head>
+
+
+<body>
+	<header class="header">
+	<div class="hd_wp clearfix">
+		<a class="logo fl" href="/">Beehoo's Tail</a>
+		<ul class="nav fr clearfix">
+			<li><a href="/">首页</a></li>
+			<li><a id="tails" href="/pages/tails_list.html">尾巴集</a></li>
+			<li><a href="/pages/about.html">关于Beehoo</a></li>
+		</ul><!--/nav-->
+	</div><!--/hd_wp-->
+
+	<script>
+		window.onload = function(){
+			if(localStorage.door != "open") {
+				document.getElementById("tails").setAttribute("href","/pages/prompt.html");
+			};
+		};
+	</script>
+</header>
+	
+	<div class="wp">
+	<div class="paper_wp clearfix">
+		<div class="about_info fl">
+			
+		</div><!--/about_info-->
+		<div class="about_cont fl">
+			<h2>关于“Beehoo”和“壁虎的尾巴”</h2>
+			<p class="t2">首先感谢您于繁忙的日常中能抽出那么些时间光临“壁虎的尾巴”。</p>
+			<p class="t2">虽然自称是“壁虎”，但我其实对壁虎这种生物可没有什么喜爱之情。只是一厢情愿的希望可以有所“庇护”，于是给自己起了这么一个还算好记的名字，英文取音拼写成：Beehoo。</p>
+			<p class="t2">从小到大Beehoo一直生活在四季梧桐的大“蓝鲸”市。现在从事着“前端攻城狮”这个名号响亮的职业。想来也能算是近程序猿的物种了，但却并不甘心只做一个码农式的技术宅，希望自己能多少保留些遗存于迷茫青春期的文艺范。于是平日里依旧会看看书，听听音乐，唱唱歌。如果条件允许，或许还会调制一杯“长岛冰茶”给自己添几分微醺，慵懒上几个时辰。</p>
+			<p class="t2">关于“壁虎的尾巴”，如您所见它看上去并不是什么“高端大气上档次”的网站，只是Beehoo一时兴起，利用空闲时间挖空心思堆砌出来的，看上去却依旧有些单调乏味的产物。但在制作它的过程中对我而言却也乐趣颇多。希望如果您也有意无意的来到了“壁虎的尾巴”，可以别凭第一印象完全否定它。如果你懂，相信它比你一眼所见的还是要丰富那么一点的。</p>
+			<p class="t2">最后，再次感谢您能耐下性子看完我这篇有胜于无的“about.html”。如果您在这里确实凭自己发现了什么，可以的话告诉我，我想我会很开心的。</p>
+			<div class="mt20 tr inscribe">Beehoo<br/>2014.10.24</div>
+		</div><!--/about_cont-->
+	</div><!--/paper_wp-->
+</div><!--/wp-->
+	
+	<footer class="footer">
+	<p class="tc">Copyright © 2014 <a href="http://beehoo.github.io">Beehoo's Tail</a>. All Rights Reserved.</p>
+</footer>
+
+<script src="/js/jquery-1.8.3.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

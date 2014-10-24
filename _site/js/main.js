@@ -23,7 +23,7 @@ $(function(){
 			_this.addClass("none");
 			_this.siblings("img.none").removeClass("none");	
 		} else {
-			_this.prop("src","../images/joke.png");
+			_this.prop("src","../images/joke.jpg");
 			$("html, a").css("cursor","none");
 			$(".blogger_img").addClass("shake shake-delay");
 			$(".blogger_intro").text("你还点上瘾了啊？！鼠标没收！叫你点！");
@@ -41,7 +41,7 @@ $(function(){
 	$("#toHomePage").click(function(){
 		if($("#hiddenEntrance").val() == "89757") {
 			localStorage.door = "open";
-			$(this).prop("href","../tails/tails_list.html");
+			$(this).prop("href","../pages/tails_list.html");
 		};
 	});
 
