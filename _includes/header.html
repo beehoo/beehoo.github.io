@@ -3,8 +3,16 @@
 		<a class="logo fl" href="{{ '/' | prepend:site.baseurl }}">Beehoo's Tail</a>
 		<ul class="nav fr clearfix">
 			<li><a href="{{ '/' | prepend:site.baseurl }}">首页</a></li>
-			<li><a href="{{ '/prompt.html' | prepend:site.baseurl }}">尾巴集</a></li>
-			<li><a href="{{ '/prompt.html' | prepend:site.baseurl }}">关于Beehoo</a></li>
+			<li><a id="tails" href="{{ '/tails/tails_list.html' | prepend:site.baseurl }}">尾巴集</a></li>
+			<li><a href="{{ '/about.html' | prepend:site.baseurl }}">关于Beehoo</a></li>
 		</ul><!--/nav-->
 	</div><!--/hd_wp-->
+
+	<script>
+		window.onload = function(){
+			if(localStorage.door != "open") {
+				document.getElementById("tails").setAttribute("href","{{ '/prompt.html' | prepend:site.baseurl }}");
+			};
+		};
+	</script>
 </header>

@@ -40,7 +40,8 @@ $(function(){
 	$("#hiddenEntrance").focus();
 	$("#toHomePage").click(function(){
 		if($("#hiddenEntrance").val() == "89757") {
-			$(this).prop("href","http://weibo.com/824624059");
+			localStorage.door = "open";
+			$(this).prop("href","../tails/tails_list.html");
 		};
 	});
 
