@@ -6,7 +6,7 @@ layout: default
 	<div class="post_wp">
 		<h2 class="post_title">{{ page.title }}</h2>
 		<p class="post_info tc"><span>作者：<em>{{ page.author }}</em></span><span>日期：{{ page.date | date: "%F" }}</span></p>
-		<article id="postCont" class="post_content">
+		<article id="{{ page.id }}" class="post_content">
 			{{ content }}
 		</article>
 		<div class="post_share clearfix mt10">
@@ -15,7 +15,7 @@ layout: default
 		</div><!--/post_share-->
 		
 		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="{{ post.id }}" data-title="{{ post.title }}" data-url="{{ site.baseurl }}{{ post.url }}"></div>
+		<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ site.baseurl }}{{ page.url }}"></div>
 		<!-- 多说评论框 end -->
 		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 		<script type="text/javascript">
