@@ -44,6 +44,8 @@ a:hover {text-decoration:none;}
 .post_content p {line-height:180%; font-size:16px; text-indent:2em; margin-bottom:10px;}
 .post_content a {color:#009a61; text-decoration:underline;}
 .post_content p img {vertical-align:middle;}
+.post_content pre {margin-bottom:10px; background:#f5f5f5; border:1px solid #ccc; border-radius:5px; padding:10px;}
+.post_content code {font-size:14px; line-height:150%; color:#009a61;}
 .post_info {color:#999; font-size:14px; margin-bottom:20px;}
 .post_info span {margin:0 20px;}
 .post_info em, .inscribe {font-family:'Pacifico',tahoma,arial,"microsoft YaHei";}

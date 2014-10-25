@@ -38,18 +38,6 @@
 	<div class="left_wp fl">
 	
 		<div class="content">
-			<h2><a title="欢迎光临“壁虎的尾巴”" href="/life/2014/10/25/welcome.html">欢迎光临“壁虎的尾巴”</a></h2>
-			<article><p>欢迎光临“壁虎的尾巴”。感谢您抽出您宝贵的时间来到Beehoo的博客。</p>
-
-<p>首先，</p>
-</article>
-			<p class="ft_tags clearfix mt10">
-				<span class="date fl">2014-10-25</span>
-				<a class="more fr" href="/life/2014/10/25/welcome.html">阅读全文»</a>
-			</p>
-		</div><!--/content-->
-	
-		<div class="content">
 			<h2><a title="Git基础教程（1）" href="/technology/2014/10/25/Git%E5%9F%BA%E7%A1%80-1.html">Git基础教程（1）</a></h2>
 			<article><p>关于Git，它是一种分布式版本控制系统。如果你用过CVS或者SVN，那么你只要知道Git它也从事着差不多的工作就够了。至于它们之间的区别，请自行百度一下我就不多介绍了。那么为什么要学习了解Git呢？嗯，什么公司项目有版本控制的需求之类的我才不管呢。知道GitHub嘛？想用嘛？想就够了先学Git吧。（不想的你打算把这篇拿来当小说看看我也挺欢迎的）</p>
 
@@ -60,23 +48,57 @@
 
 <p>注意：Windows下的用户你今后所有的Git命令操作都应该在这里面进行。千万不要用自带的CMD去操作Git，不然你后面被坑了别怪我没提醒你。</p>
 
-<p>OK下面该来点实际的了。这里的操作都以Windows为环境。打开那个Git Bash，然后，假设我要在F盘下建立一个文件夹，那么输入命令：</p>
+<p>OK下面该来点实际的了。这里的操作都以Windows为环境。打开那个Git Bash，先需要进行一些配置。输入两条命令：</p>
+
+<pre><code>$ git config --global user.name "你的名字"
+$ git config --global user.email "你的email"
+</code></pre>
+
+<p>因为Git毕竟是一个“分布式版本控制系统”，登记一下个人信息也方便别人知道你是谁是吧。</p>
+
+<p>然后，假设我要在F盘下建立一个名为“blog”的文件夹并进入这个文件夹，那么输入命令：</p>
+
+<pre><code>$ cd f:
+$ mkdir blog
+$ cd blog
+</code></pre>
+
+<p>没什么错误信息的话你应该已经在blog这个文件夹里了。接着我们再执行一条命令把这个文件夹变成Git仓库：</p>
+
+<pre><code>$ git init
+</code></pre>
+
+<p>请大力敲击你的回车！（反正又不是我的敲坏了不心疼）你已经成功初始化了一个Git仓库！这时候我们进入刚才建立的blog文件夹看看，是不是多了一个.git的目录？什么你说没有？“工具-文件夹选项-查看”把显示隐藏文件的选中，然后点击应用再看看。如果还没有，身后那堵墙请自便。</p>
+
+<p>好，我们假设你到目前为止都很顺利的成功了，那么恭喜你还是很有天分的！继续吧~我们在blog这个目录里创建一个文本文件（随便是什么反正你之后肯定会把它删了的），比如test.txt。然后里面随便写些什么，比如：Beehoo是个好青年！嗯，快保存我们继续。这一切都ok了，我们继续回到Git Bash里面敲命令：</p>
+
+<pre><code>$ git add test.txt
+</code></pre>
+
+<p>如果没有出现任何错误提示信息，那么恭喜你成功的把test.txt这个文件添加到了仓库中。如果你改了多个文件该咋办呢？这样吧：</p>
+
+<pre><code>$ git add .
+</code></pre>
+
+<p>一个点就代表当前目录，这样当前目录下的所有修改过的或新创建的文件就都被添加到仓库里了。我一般都是这么干的，方便。添加到仓库并不代表就完了，它只是把文件放到了暂存区。之后要提交，也就是把暂存区里的内容提交到当前分支。暂时不清楚神马暂存区咯分支咯也没关系，先有个印象就行。</p>
+
+<pre><code>$ git commit -m "为人为己拜托你就在这儿说点儿啥吧"
+</code></pre>
+
+<p>加上-m参数然后留下一些说明信息，比如你修改了什么。看到一些温和的提示信息之后恭喜你提交成功了。</p>
+
+<p>好，到这里我们先总结一下。首先，我们初始化了一个Git仓库。之后，这个仓库里今后所有新增、修改的文件先添加后提交。</p>
+
+<pre><code>$ git init
+$ git add xxx
+$ git commit -m "xxx"
+</code></pre>
+
+<p>下一篇，我们把提交了的这个文件上传到GitHub上。请没有GitHub账号的赶紧先去注册一个。本篇至此，感谢阅读。</p>
 </article>
 			<p class="ft_tags clearfix mt10">
 				<span class="date fl">2014-10-25</span>
 				<a class="more fr" href="/technology/2014/10/25/Git%E5%9F%BA%E7%A1%80-1.html">阅读全文»</a>
-			</p>
-		</div><!--/content-->
-	
-		<div class="content">
-			<h2><a title="Beehoo的博客正在加速搭建中" href="/life/2014/10/21/hello-world.html">Beehoo的博客正在加速搭建中</a></h2>
-			<article><p>嘿～如果你已经闯入了Beehoo正在搭建的博客，那么我得先和您说声对不起了。如你所见Beehoo的博客还没有完成，依旧在努力搭建完善中。不过如果你有兴趣，我可以先大致介绍一下。</p>
-<p>Beehoo的博客将会是一个偏向于技术分享类的博客。主要针对的是前端方面的技术。Beehoo	将会在这里分享一些平日所学的好玩的新技术，新知识，还有工作中一些问题的经验总结，偶尔也会有些生活上的小吐槽等等。</p>
-<p>总之，在Beehoo的博客完成前，大家可以尽可能的设想一些美好的内容，或许今后都会出现在Beehoo的博客中。不过，Beehoo	是一个很懒的人，所以你们想归想，嗯。。。</p>
-<p>如果大家真的有兴趣的话，可以先关注Beehoo的微博：<a href="http://weibo.com/824624059" target="_blank">小丑羯的微博</a>。谢谢～</p></article>
-			<p class="ft_tags clearfix mt10">
-				<span class="date fl">2014-10-21</span>
-				<a class="more fr" href="/life/2014/10/21/hello-world.html">阅读全文»</a>
 			</p>
 		</div><!--/content-->
 	
