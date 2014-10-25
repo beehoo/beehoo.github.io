@@ -1,3 +1,5 @@
 baseurl: ""
+highlighter: pygments
+markdown: rdiscount
 title: "壁虎的尾巴"
-description: "壁虎的尾巴，Beehoo的尾巴。这里是Beehoo的Blog。"
+description: "壁虎的尾巴，Beehoo的尾巴。这里是Beehoo的Blog"
