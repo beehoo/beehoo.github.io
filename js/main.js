@@ -26,8 +26,8 @@ $(function(){
 			_this.prop("src","../images/joke.jpg");
 			$("html, a").css("cursor","none");
 			$(".blogger_img").addClass("shake shake-delay");
-			$(".blogger_intro").text("你还点上瘾了啊？！鼠标没收！看你还点！");
-			$("title").html("点点点...");
+			$(".blogger_intro").text("点一两次就算了你还没完啦？！好玩嘛？！");
+			$("title").html("点的好玩嘛？！");
 		};				
 	});
 
