@@ -45,4 +45,7 @@ $(function(){
 		};
 	});
 
+	//为博文里的链接都加上_target属性
+	$(".post_content a").prop("target","_blank");
+
 });

@@ -38,6 +38,75 @@
 	<div class="left_wp fl">
 	
 		<div class="content">
+			<h2><a title="Git基础教程（2）" href="/technology/2014/10/26/Git%E5%9F%BA%E7%A1%80-2.html">Git基础教程（2）</a></h2>
+			<article><p>上一篇我们创建了一个Git仓库，并在这个仓库里提交了一个文件。我们先对这个文件的内容做些修改，加上一些话什么的随意。然后，双击打开你的Git Bash，进入仓库目录，添加，提交。</p>
+
+<pre><code>$ cd f:/test
+$ git add .
+$ git commit -m "修改了内容"
+</code></pre>
+
+<p>相信都还有印象对吧。那么，接下来就把这个文件上传到<a href="https://github.com" title="GitHub">GitHub</a>上去。</p>
+
+<p>因为本地的Git仓库和GitHub的远程仓库之间的传输是通过SSH加密的，所以我们需要一个SSH Key。先去你的用户主目录下看看有没有一个.ssh文件目录，如果没有的话，我们就需要先创建一个。再打开一个Git Bash，或者就刚才你开那个，先转移到主目录去：</p>
+
+<pre><code>$ cd ~
+</code></pre>
+
+<p>创建SSH Key：</p>
+
+<pre><code>$ ssh-keygen -t rsa -C "你的email地址"
+</code></pre>
+
+<p>然后一路回车，密码留空就行了。当然如果你说你很在意安全问题的话，随意。一切顺利的话在你的主目录里应该就有一个.ssh目录了，里面有两个文件：id_rsa和id_rsa.pub。其中id_rsa是私钥，保管好了，另一个id_rsa.pub是公钥，也就是我们接下来要用到的。登录你的GitHub账户，点击右上角的齿轮图标进入设置界面，左侧菜单里选择“SSH Keys”，之后右边点击“Add SSH Key”。“Title”随意填，然后打开你那个id_rsa.pub文件，把里面的内容复制到“Key”里面，最后点击“Add Key”搞定。有图有真相：</p>
+
+<p><img src="/images/posts/img_02.jpg" title="Add SSH Key" alt="Add SSH Key" /></p>
+
+<p>你也可以添加多个，比如家里一个公司一个。一切顺利接下来我们添加一个远程仓库。点击右上角的“New repository”，进入添加新仓库的界面，“Repository name”里填入你的项目名称，比如这里先填test。其他默认，然后点击“Create repository”完成创建。这样创建出来的Git仓库是对所有人可见的哦。有需要的土豪们也可以选择把该仓库设置为私有，嗯，每个月7美刀。</p>
+
+<p><img src="/images/posts/img_03.jpg" title="Create repository" alt="Create repository" /></p>
+
+<p>创建完成之后应该会有一个引导页面，告诉你接下来该怎么做。我们要把我们那个test.txt上传到这个仓库。那么打开你的Git Bash，确定你在仓库文件夹下了，之后先关联你的远程仓库：</p>
+
+<pre><code>$ git remote add origin https://github.com/beehoo/test.git
+</code></pre>
+
+<p>注意把地址换成你自己的。接着把本地仓库的内容推送到你刚建立的远程仓库里：</p>
+
+<pre><code>$ git push -u origin master
+</code></pre>
+
+<p>“origin”是Git默认远程主机名，master是分支。关于分支，Git会自动创建一个名为“master”的主分支，你的操作默认也都是在master分支上进行的。当然你也可以自己创建分支，这里暂时先不说。第一次推送加上“-u”的参数，会把本地master分支和远程master分支关联起来。今后你要把本地的更新再推送到远程，可以直接：</p>
+
+<pre><code>$ git push origin master
+</code></pre>
+
+<p>推送时提示输入你的GitHub用户名和密码，输入之后回车。返回信息后表示成功了。</p>
+
+<p>那如果我在家里推送了更新，第二天到了公司我要如何取得这些更新呢？如果你公司的电脑里还没有项目目录，可以先从你的GitHub上clone一份。</p>
+
+<pre><code>$ git clone https://github.com/beehoo/test.git
+</code></pre>
+
+<p>这样就从远程仓库里克隆了一份一样的版本库到你的机子上了。既然已经有了，那以后要如何取得更新呢？两种方法，第一种：</p>
+
+<pre><code>$ git fetch origin master
+</code></pre>
+
+<p>第二种：</p>
+
+<pre><code>$ git pull origin master
+</code></pre>
+
+<p>两者的区别在于后者会自动合并而前者不会。如果你嫌麻烦就用后者吧。</p>
+</article>
+			<p class="ft_tags clearfix mt10">
+				<span class="date fl">2014-10-26</span>
+				<a class="more fr" href="/technology/2014/10/26/Git%E5%9F%BA%E7%A1%80-2.html">阅读全文»</a>
+			</p>
+		</div><!--/content-->
+	
+		<div class="content">
 			<h2><a title="Git基础教程（1）" href="/technology/2014/10/25/Git%E5%9F%BA%E7%A1%80-1.html">Git基础教程（1）</a></h2>
 			<article><p>关于Git，它是一种分布式版本控制系统。如果你用过CVS或者SVN，那么你只要知道Git它也从事着差不多的工作就够了。至于它们之间的区别，请自行百度一下我就不多介绍了。那么为什么要学习了解Git呢？嗯，什么公司项目有版本控制的需求之类的我才不管呢。知道GitHub嘛？想用嘛？虽然有些本末倒置但想就够了来学Git吧。（不想的你打算把这篇拿来当小说看看我也挺欢迎的）</p>
 
@@ -56,21 +125,21 @@ $ git config --global user.email "你的email"
 
 <p>因为Git毕竟是一个“分布式版本控制系统”，登记一下个人信息也方便别人知道你是谁是吧。</p>
 
-<p>然后，假设我要在F盘下建立一个名为“blog”的文件夹并进入这个文件夹，那么输入命令：</p>
+<p>然后，假设我要在F盘下建立一个名为“test”的文件夹并进入这个文件夹，那么输入命令：</p>
 
 <pre><code>$ cd f:
-$ mkdir blog
-$ cd blog
+$ mkdir test
+$ cd test
 </code></pre>
 
-<p>没什么错误信息的话你应该已经在blog这个文件夹里了。接着我们再执行一条命令把这个文件夹变成Git仓库：</p>
+<p>没什么错误信息的话你应该已经在test这个文件夹里了。接着我们再执行一条命令把这个文件夹变成Git仓库：</p>
 
 <pre><code>$ git init
 </code></pre>
 
-<p>请大力敲击你的回车！（反正又不是我的敲坏了不心疼）你已经成功初始化了一个Git仓库！这时候我们进入刚才建立的blog文件夹看看，是不是多了一个.git的目录？什么你说没有？“工具-文件夹选项-查看”把显示隐藏文件的选中，然后点击应用再看看。如果还没有，身后那堵墙请自便。</p>
+<p>请大力敲击你的回车！（反正又不是我的敲坏了不心疼）你已经成功初始化了一个Git仓库！这时候我们进入刚才建立的test文件夹看看，是不是多了一个.git的目录？什么你说没有？“工具-文件夹选项-查看”把显示隐藏文件的选中，然后点击应用再看看。如果还没有，身后那堵墙请自便。关于.git这个目录，你可以暂时不管它是做什么的，只要记住别手贱乱改里面东西就成。</p>
 
-<p>好，我们假设你到目前为止都很顺利的成功了，那么恭喜你还是很有天分的！继续吧~我们在blog这个目录里创建一个文本文件（随便是什么反正你之后肯定会把它删了的），比如test.txt。然后里面随便写些什么，比如：Beehoo是个好青年！嗯，快保存我们继续。这一切都ok了，我们继续回到Git Bash里面敲命令：</p>
+<p>好，我们假设你到目前为止都很顺利的成功了，那么恭喜你还是很有天分的！继续吧~我们在test这个目录里创建一个文本文件（随便是什么反正你之后肯定会把它删了的），比如test.txt。然后里面随便写些什么，比如：Beehoo是个好青年！嗯，快保存我们继续。这一切都ok了，我们继续回到Git Bash里面敲命令：</p>
 
 <pre><code>$ git add test.txt
 </code></pre>
