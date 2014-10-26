@@ -48,4 +48,12 @@ $(function(){
 	//为博文里的链接都加上_target属性
 	$(".post_content a").prop("target","_blank");
 
+	//判断是否存在上一篇或下一篇日志
+	$(".blog-prev-next a").each(function(){
+		var _this = $(this);
+		if(_this.text() == "") {
+			_this.text("无").prop("href","javascript:;");
+		};
+	});
+
 });
