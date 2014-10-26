@@ -38,27 +38,27 @@
 	<div class="left_wp fl">
 	
 		<div class="content">
-			<h2><a title="HTML5 Web Storage讲解" href="/technology/2014/10/26/web-storage.html">HTML5 Web Storage讲解</a></h2>
+			<h2><a title="HTML5 Web Storage讲解" href="/2014/10/26/web-storage">HTML5 Web Storage讲解</a></h2>
 			<article><p>之前对于HTML5的本地存储功能有所了解，但却没有实际使用过。这次在做博客的过程中有一个小功能使用到了Web Storage技术。便在这里做一个简单的讲解。</p>
 
 <p>首先，Web Storage其实分为 <strong>sessionStorage</strong> 和 <strong>localStorage</strong> 两种。它们两者的区别，sessionStorage保存的数据只在构建它们的窗口或标签页内可见，而且当你关闭数据所在的窗口时，嗯它们就挂了。而localStorage命就比较硬，即使你关闭当前窗口甚至浏览器它们也不会消失，并且localStorage里存储的数据可被同源的（包括规则、主机和端口）每个窗口或者标签页共享。当然两者的数据都是存储在浏览器里的，如果你换了个浏览器甚至主机自然就没效了。</p>
 
 <p>既然是HTML5的东西自然还是要先考虑一下它的兼容性的。不过Web Storage的支持情况还是很不错的。就IE而言即使IE8也表示支持Web Storage技术，也就是说，如果你能正常看到这篇文章，那么你所用的浏览器应该都是支持的。不过为了保险起见我们还是应该去检测一下。</p>
 
-<pre><code>//sessionStorage
-if(window.sessionStorage) {
-    alert("您的浏览器支持sessionStorage！");
-} else {
-    alert("您的浏览器不支持sessionStorage...");
-};
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//sessionStorage</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;您的浏览器支持sessionStorage！&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;您的浏览器不支持sessionStorage...&quot;</span><span class="p">);</span>
+<span class="p">};</span>
 
-//localStorage
-if(window.localStorage) {
-    alert("您的浏览器支持localStorage！");
-} else {
-    alert("您的浏览器不支持localStorage...");
-};
-</code></pre>
+<span class="c1">//localStorage</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;您的浏览器支持localStorage！&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;您的浏览器不支持localStorage...&quot;</span><span class="p">);</span>
+<span class="p">};</span></code></pre></div>
+
 
 <p>我们不妨通过一个简单的实例来讲解Web Storage的用法。在下方的文本框里输入你的昵称，并点击确定提交。看你的昵称是不是也显示在下方了呢？</p>
 
@@ -69,34 +69,34 @@ if(window.localStorage) {
 
 <p>这好像也没什么。那么我们刷新一下页面，或者关闭你当前的浏览器再打开进入这个页面，是不是依旧可以看到你的昵称呢？我们看下代码实现：</p>
 
-<pre><code>function ws(){
-    var _btn = document.getElementById("ok"),
-        _nick = "";
-    if(localStorage.nickname) {
-        document.getElementById("welcome").innerHTML = localStorage.nickname;
-    };
-    _btn.addEventListener("click",function(){
-        _nick = document.getElementById("nickname").value;
-        document.getElementById("welcome").innerHTML = _nick;
-        localStorage.nickname = _nick;
-    });
-};
-</code></pre>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">ws</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">_btn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">),</span>
+        <span class="nx">_nick</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">nickname</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;welcome&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">nickname</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">_btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">_nick</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;nickname&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;welcome&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">_nick</span><span class="p">;</span>
+        <span class="nx">localStorage</span><span class="p">.</span><span class="nx">nickname</span> <span class="o">=</span> <span class="nx">_nick</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span></code></pre></div>
+
 
 <p>既然需求是即使重启浏览器也不丢失数据，那么这里自然选择localStorage而不是sessionStorage。存储的数据是键值对，可通过setItem()方法设置：</p>
 
-<pre><code>window.localStorage.setItem("Key","Value");
-</code></pre>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;Key&quot;</span><span class="p">,</span><span class="s2">&quot;Value&quot;</span><span class="p">);</span></code></pre></div>
+
 
 <p>用getItem()方法取得对应键的值：</p>
 
-<pre><code>window.localStorage.getItem("Key");
-</code></pre>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;Key&quot;</span><span class="p">);</span></code></pre></div>
+
 
 <p>不过其实也可以不调用setItem()或getItem()方法，直接在sessionStorage或localStorage对象上设置和获取数据，再省去写window对象的话，就变成这样：</p>
 
-<pre><code>localStorage.key = "value";
-</code></pre>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">key</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">;</span></code></pre></div>
+
 
 <p>当点击确定键的时候，把文本框中输入的值取出作为键“nickname”的值存入localStorage，以后当页面加载的时候，就再把“nickname”对应的值取出放入页面元素里。逻辑差不多就是这样并不复杂。</p>
 
@@ -142,30 +142,30 @@ if(window.localStorage) {
 </article>
 			<p class="ft_tags clearfix mt10">
 				<span class="date fl">2014-10-26</span>
-				<a class="more fr" href="/technology/2014/10/26/web-storage.html">阅读全文»</a>
+				<a class="more fr" href="/2014/10/26/web-storage">阅读全文»</a>
 			</p>
 		</div><!--/content-->
 	
 		<div class="content">
-			<h2><a title="Git基础教程（2）" href="/technology/2014/10/26/Git%E5%9F%BA%E7%A1%80-2.html">Git基础教程（2）</a></h2>
+			<h2><a title="Git基础教程（2）" href="/2014/10/26/Git-2">Git基础教程（2）</a></h2>
 			<article><p>上一篇我们创建了一个Git仓库，并在这个仓库里提交了一个文件。我们先对这个文件的内容做些修改，加上一些话什么的随意。然后，双击打开你的Git Bash，进入仓库目录，添加，提交。</p>
 
-<pre><code>$ cd f:/test
-$ git add .
-$ git commit -m "修改了内容"
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>f:/test
+<span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -m <span class="s2">&quot;修改了内容&quot;</span></code></pre></div>
+
 
 <p>相信都还有印象对吧。那么，接下来就把这个文件上传到<a href="https://github.com" title="GitHub">GitHub</a>上去。</p>
 
 <p>因为本地的Git仓库和GitHub的远程仓库之间的传输是通过SSH加密的，所以我们需要一个SSH Key。先去你的用户主目录下看看有没有一个.ssh文件目录，如果没有的话，我们就需要先创建一个。再打开一个Git Bash，或者就刚才你开那个，先转移到主目录去：</p>
 
-<pre><code>$ cd ~
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd</span> ~</code></pre></div>
+
 
 <p>创建SSH Key：</p>
 
-<pre><code>$ ssh-keygen -t rsa -C "你的email地址"
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ssh-keygen -t rsa -C <span class="s2">&quot;你的email地址&quot;</span></code></pre></div>
+
 
 <p>然后一路回车，密码留空就行了。当然如果你说你很在意安全问题的话，随意。一切顺利的话在你的主目录里应该就有一个.ssh目录了，里面有两个文件：id_rsa和id_rsa.pub。其中id_rsa是私钥，保管好了，另一个id_rsa.pub是公钥，也就是我们接下来要用到的。登录你的GitHub账户，点击右上角的齿轮图标进入设置界面，左侧菜单里选择“SSH Keys”，之后右边点击“Add SSH Key”。“Title”随意填，然后打开你那个id_rsa.pub文件，把里面的内容复制到“Key”里面，最后点击“Add Key”搞定。有图有真相：</p>
 
@@ -177,46 +177,46 @@ $ git commit -m "修改了内容"
 
 <p>创建完成之后应该会有一个引导页面，告诉你接下来该怎么做。我们要把我们那个test.txt上传到这个仓库。那么打开你的Git Bash，确定你在仓库文件夹下了，之后先关联你的远程仓库：</p>
 
-<pre><code>$ git remote add origin https://github.com/beehoo/test.git
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git remote add origin https://github.com/beehoo/test.git</code></pre></div>
+
 
 <p>注意把地址换成你自己的。接着把本地仓库的内容推送到你刚建立的远程仓库里：</p>
 
-<pre><code>$ git push -u origin master
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git push -u origin master</code></pre></div>
+
 
 <p>“origin”是Git默认远程主机名，master是分支。关于分支，Git会自动创建一个名为“master”的主分支，你的操作默认也都是在master分支上进行的。当然你也可以自己创建分支，这里暂时先不说。第一次推送加上“-u”的参数，会把本地master分支和远程master分支关联起来。今后你要把本地的更新再推送到远程，可以直接：</p>
 
-<pre><code>$ git push origin master
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git push origin master</code></pre></div>
+
 
 <p>推送时提示输入你的GitHub用户名和密码，输入之后回车。返回信息后表示成功了。</p>
 
 <p>那如果我在家里推送了更新，第二天到了公司我要如何取得这些更新呢？如果你公司的电脑里还没有项目目录，可以先从你的GitHub上clone一份。</p>
 
-<pre><code>$ git clone https://github.com/beehoo/test.git
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git clone https://github.com/beehoo/test.git</code></pre></div>
+
 
 <p>这样就从远程仓库里克隆了一份一样的版本库到你的机子上了。既然已经有了，那以后要如何取得更新呢？两种方法，第一种：</p>
 
-<pre><code>$ git fetch origin master
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git fetch origin master</code></pre></div>
+
 
 <p>第二种：</p>
 
-<pre><code>$ git pull origin master
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git pull origin master</code></pre></div>
+
 
 <p>两者的区别在于后者会自动合并而前者不会。如果你嫌麻烦就用后者吧。</p>
 </article>
 			<p class="ft_tags clearfix mt10">
 				<span class="date fl">2014-10-26</span>
-				<a class="more fr" href="/technology/2014/10/26/Git%E5%9F%BA%E7%A1%80-2.html">阅读全文»</a>
+				<a class="more fr" href="/2014/10/26/Git-2">阅读全文»</a>
 			</p>
 		</div><!--/content-->
 	
 		<div class="content">
-			<h2><a title="Git基础教程（1）" href="/technology/2014/10/25/Git%E5%9F%BA%E7%A1%80-1.html">Git基础教程（1）</a></h2>
+			<h2><a title="Git基础教程（1）" href="/2014/10/25/Git-1">Git基础教程（1）</a></h2>
 			<article><p>关于Git，它是一种分布式版本控制系统。如果你用过CVS或者SVN，那么你只要知道Git它也从事着差不多的工作就够了。至于它们之间的区别，请自行百度一下我就不多介绍了。那么为什么要学习了解Git呢？嗯，什么公司项目有版本控制的需求之类的我才不管呢。知道GitHub嘛？想用嘛？虽然有些本末倒置但想就够了来学Git吧。（不想的你打算把这篇拿来当小说看看我也挺欢迎的）</p>
 
 <p>首先当然是安装。如果你是在Linux环境下，以Ubuntu为例，一句命令“sudo apt-get install git”搞定。
@@ -228,55 +228,55 @@ $ git commit -m "修改了内容"
 
 <p>OK下面该来点实际的了。这里的操作都以Windows为环境。打开那个Git Bash，先需要进行一些配置。输入两条命令：</p>
 
-<pre><code>$ git config --global user.name "你的名字"
-$ git config --global user.email "你的email"
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git config --global user.name <span class="s2">&quot;你的名字&quot;</span>
+<span class="nv">$ </span>git config --global user.email <span class="s2">&quot;你的email&quot;</span></code></pre></div>
+
 
 <p>因为Git毕竟是一个“分布式版本控制系统”，登记一下个人信息也方便别人知道你是谁是吧。</p>
 
 <p>然后，假设我要在F盘下建立一个名为“test”的文件夹并进入这个文件夹，那么输入命令：</p>
 
-<pre><code>$ cd f:
-$ mkdir test
-$ cd test
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">cd </span>f:
+<span class="nv">$ </span>mkdir <span class="nb">test</span>
+<span class="nv">$ </span><span class="nb">cd test</span></code></pre></div>
+
 
 <p>没什么错误信息的话你应该已经在test这个文件夹里了。接着我们再执行一条命令把这个文件夹变成Git仓库：</p>
 
-<pre><code>$ git init
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git init</code></pre></div>
+
 
 <p>请大力敲击你的回车！（反正又不是我的敲坏了不心疼）你已经成功初始化了一个Git仓库！这时候我们进入刚才建立的test文件夹看看，是不是多了一个.git的目录？什么你说没有？“工具-文件夹选项-查看”把显示隐藏文件的选中，然后点击应用再看看。如果还没有，身后那堵墙请自便。关于.git这个目录，你可以暂时不管它是做什么的，只要记住别手贱乱改里面东西就成。</p>
 
 <p>好，我们假设你到目前为止都很顺利的成功了，那么恭喜你还是很有天分的！继续吧~我们在test这个目录里创建一个文本文件（随便是什么反正你之后肯定会把它删了的），比如test.txt。然后里面随便写些什么，比如：Beehoo是个好青年！嗯，快保存我们继续。这一切都ok了，我们继续回到Git Bash里面敲命令：</p>
 
-<pre><code>$ git add test.txt
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git add test.txt</code></pre></div>
+
 
 <p>如果没有出现任何错误提示信息，那么恭喜你成功的把test.txt这个文件添加到了仓库中。如果你改了多个文件该咋办呢？这样吧：</p>
 
-<pre><code>$ git add .
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git add .</code></pre></div>
+
 
 <p>一个点就代表当前目录，这样当前目录下的所有修改过的或新创建的文件就都被添加到仓库里了。我一般都是这么干的，方便。添加到仓库并不代表就完了，它只是把文件放到了暂存区。之后要提交，也就是把暂存区里的内容提交到当前分支。暂时不清楚神马暂存区咯分支咯也没关系，先有个印象就行。</p>
 
-<pre><code>$ git commit -m "为人为己拜托你就在这儿说点儿啥吧"
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git commit -m <span class="s2">&quot;为人为己拜托你就在这儿说点儿啥吧&quot;</span></code></pre></div>
+
 
 <p>加上-m参数然后留下一些说明信息，比如你修改了什么。看到一些温和的提示信息之后恭喜你提交成功了。</p>
 
 <p>好，到这里我们先总结一下。首先，我们初始化了一个Git仓库。之后，这个仓库里今后所有新增、修改的文件先添加后提交。</p>
 
-<pre><code>$ git init
-$ git add xxx
-$ git commit -m "xxx"
-</code></pre>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git init
+<span class="nv">$ </span>git add xxx
+<span class="nv">$ </span>git commit -m <span class="s2">&quot;xxx&quot;</span></code></pre></div>
+
 
 <p>下一篇，我们把提交了的这个文件上传到GitHub上。请没有GitHub账号的赶紧先去注册一个。本篇至此，感谢阅读。</p>
 </article>
 			<p class="ft_tags clearfix mt10">
 				<span class="date fl">2014-10-25</span>
-				<a class="more fr" href="/technology/2014/10/25/Git%E5%9F%BA%E7%A1%80-1.html">阅读全文»</a>
+				<a class="more fr" href="/2014/10/25/Git-1">阅读全文»</a>
 			</p>
 		</div><!--/content-->
 	

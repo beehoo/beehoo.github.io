@@ -38,27 +38,27 @@
 	<div class="post_wp">
 		<h2 class="post_title">HTML5 Web Storage讲解</h2>
 		<p class="post_info tc"><span>作者：<em>Beehoo</em></span><span>日期：2014-10-26</span></p>
-		<article id="/technology/2014/10/26/web-storage" class="post_content">
+		<article id="/2014/10/26/web-storage" class="post_content">
 			<p>之前对于HTML5的本地存储功能有所了解，但却没有实际使用过。这次在做博客的过程中有一个小功能使用到了Web Storage技术。便在这里做一个简单的讲解。</p>
 
 <p>首先，Web Storage其实分为 <strong>sessionStorage</strong> 和 <strong>localStorage</strong> 两种。它们两者的区别，sessionStorage保存的数据只在构建它们的窗口或标签页内可见，而且当你关闭数据所在的窗口时，嗯它们就挂了。而localStorage命就比较硬，即使你关闭当前窗口甚至浏览器它们也不会消失，并且localStorage里存储的数据可被同源的（包括规则、主机和端口）每个窗口或者标签页共享。当然两者的数据都是存储在浏览器里的，如果你换了个浏览器甚至主机自然就没效了。</p>
 
 <p>既然是HTML5的东西自然还是要先考虑一下它的兼容性的。不过Web Storage的支持情况还是很不错的。就IE而言即使IE8也表示支持Web Storage技术，也就是说，如果你能正常看到这篇文章，那么你所用的浏览器应该都是支持的。不过为了保险起见我们还是应该去检测一下。</p>
 
-<pre><code>//sessionStorage
-if(window.sessionStorage) {
-    alert("您的浏览器支持sessionStorage！");
-} else {
-    alert("您的浏览器不支持sessionStorage...");
-};
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">//sessionStorage</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;您的浏览器支持sessionStorage！&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;您的浏览器不支持sessionStorage...&quot;</span><span class="p">);</span>
+<span class="p">};</span>
 
-//localStorage
-if(window.localStorage) {
-    alert("您的浏览器支持localStorage！");
-} else {
-    alert("您的浏览器不支持localStorage...");
-};
-</code></pre>
+<span class="c1">//localStorage</span>
+<span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;您的浏览器支持localStorage！&quot;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;您的浏览器不支持localStorage...&quot;</span><span class="p">);</span>
+<span class="p">};</span></code></pre></div>
+
 
 <p>我们不妨通过一个简单的实例来讲解Web Storage的用法。在下方的文本框里输入你的昵称，并点击确定提交。看你的昵称是不是也显示在下方了呢？</p>
 
@@ -69,34 +69,34 @@ if(window.localStorage) {
 
 <p>这好像也没什么。那么我们刷新一下页面，或者关闭你当前的浏览器再打开进入这个页面，是不是依旧可以看到你的昵称呢？我们看下代码实现：</p>
 
-<pre><code>function ws(){
-    var _btn = document.getElementById("ok"),
-        _nick = "";
-    if(localStorage.nickname) {
-        document.getElementById("welcome").innerHTML = localStorage.nickname;
-    };
-    _btn.addEventListener("click",function(){
-        _nick = document.getElementById("nickname").value;
-        document.getElementById("welcome").innerHTML = _nick;
-        localStorage.nickname = _nick;
-    });
-};
-</code></pre>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">ws</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">_btn</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;ok&quot;</span><span class="p">),</span>
+        <span class="nx">_nick</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">nickname</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;welcome&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">nickname</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="nx">_btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">_nick</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;nickname&quot;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;welcome&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">_nick</span><span class="p">;</span>
+        <span class="nx">localStorage</span><span class="p">.</span><span class="nx">nickname</span> <span class="o">=</span> <span class="nx">_nick</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span></code></pre></div>
+
 
 <p>既然需求是即使重启浏览器也不丢失数据，那么这里自然选择localStorage而不是sessionStorage。存储的数据是键值对，可通过setItem()方法设置：</p>
 
-<pre><code>window.localStorage.setItem("Key","Value");
-</code></pre>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&quot;Key&quot;</span><span class="p">,</span><span class="s2">&quot;Value&quot;</span><span class="p">);</span></code></pre></div>
+
 
 <p>用getItem()方法取得对应键的值：</p>
 
-<pre><code>window.localStorage.getItem("Key");
-</code></pre>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">window</span><span class="p">.</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&quot;Key&quot;</span><span class="p">);</span></code></pre></div>
+
 
 <p>不过其实也可以不调用setItem()或getItem()方法，直接在sessionStorage或localStorage对象上设置和获取数据，再省去写window对象的话，就变成这样：</p>
 
-<pre><code>localStorage.key = "value";
-</code></pre>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">localStorage</span><span class="p">.</span><span class="nx">key</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">;</span></code></pre></div>
+
 
 <p>当点击确定键的时候，把文本框中输入的值取出作为键“nickname”的值存入localStorage，以后当页面加载的时候，就再把“nickname”对应的值取出放入页面元素里。逻辑差不多就是这样并不复杂。</p>
 
@@ -147,7 +147,7 @@ if(window.localStorage) {
 		</div><!--/post_share-->
 		
 		<!-- 多说评论框 start -->
-		<div class="ds-thread" data-thread-key="/technology/2014/10/26/web-storage" data-title="HTML5 Web Storage讲解" data-url="http://beehoo.github.io/technology/2014/10/26/web-storage.html"></div>
+		<div class="ds-thread" data-thread-key="/2014/10/26/web-storage" data-title="HTML5 Web Storage讲解" data-url="http://beehoo.github.io/2014/10/26/web-storage"></div>
 		<!-- 多说评论框 end -->
 		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 		<script type="text/javascript">
