@@ -33,7 +33,7 @@ $(function(){
 
 	//判断浏览器
 	if($.browser.msie && $.browser.version < 9) {
-		window.location.href = "/low.html";
+		window.location.href = "pages/low.html";
 	};
 
 	//隐藏入口
@@ -56,4 +56,26 @@ $(function(){
 		};
 	});
 
+	//
+	if($("#ws_ok").length) {
+		ws();
+	};
+
 });
+
+function ws(){
+	var _btn = document.getElementById("ws_ok"),
+		_nick = "";
+	if(window.localStorage) {
+		if(localStorage.nickname) {
+			document.getElementById("welcome").innerHTML = localStorage.nickname;
+		};
+		_btn.addEventListener("click",function(){
+			_nick = document.getElementById("nickname").value;
+			document.getElementById("welcome").innerHTML = _nick;
+			localStorage.nickname = _nick;
+		});
+	} else {
+		alert("您的浏览器不支持localStorage..");
+	};
+};

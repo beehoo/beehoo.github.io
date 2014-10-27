@@ -31,7 +31,7 @@ if(window.localStorage) {
 我们不妨通过一个简单的实例来讲解Web Storage的用法。在下方的文本框里输入你的昵称，并点击确定提交。看你的昵称是不是也显示在下方了呢？
 
 <input id="nickname" type="text">
-<button id="ok">确定</button>
+<button id="ws_ok">确定</button>
 
 欢迎光临！<span id="welcome"></span>
 
@@ -39,7 +39,7 @@ if(window.localStorage) {
 
 {% highlight js %}
 function ws(){
-	var _btn = document.getElementById("ok"),
+	var _btn = document.getElementById("ws_ok"),
 		_nick = "";
 	if(localStorage.nickname) {
 		document.getElementById("welcome").innerHTML = localStorage.nickname;
@@ -85,27 +85,4 @@ __clear()__ 能删除存储列表中的所有数据。
 它们每一个的具体用法这里就不多介绍了。目前的浏览器基本都可以查看到sessionStorage和localStorage中的数据。以Chrome为例，F12打开开发者工具，选择“Resources”，然后左侧的菜单里就有Local Storage和Session Storage了。点击选择，便可以看到对应的数据。
 
 ![Web Storage]({{ '/images/posts/img_04.png' | prepend:site.baseurl }} "Web Storage")
-
-<script>
-	function ws(){
-		var _btn = document.getElementById("ok"),
-			_nick = "";
-		if(window.localStorage) {
-			if(localStorage.nickname) {
-				document.getElementById("welcome").innerHTML = localStorage.nickname;
-			};
-			_btn.addEventListener("click",function(){
-				_nick = document.getElementById("nickname").value;
-				document.getElementById("welcome").innerHTML = _nick;
-				localStorage.nickname = _nick;
-			});
-		} else {
-			alert("您的浏览器不支持localStorage..");
-		};
-	};
-
-	window.onload = function(){
-		ws();
-	};
-</script>
 
