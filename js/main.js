@@ -33,7 +33,7 @@ $(function(){
 
 	//判断浏览器
 	if($.browser.msie && $.browser.version < 9) {
-		window.location.href = "/low.html";
+		window.location.href = "pages/low.html";
 	};
 
 	//隐藏入口
