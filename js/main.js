@@ -56,7 +56,7 @@ $(function(){
 		};
 	});
 
-	//
+	//web storage示例代码
 	if($("#ws_ok").length) {
 		ws();
 	};
