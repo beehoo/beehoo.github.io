@@ -61,6 +61,13 @@ $(function(){
 		ws();
 	};
 
+	//手机兼容性临时调整
+	if($(window).width() < 1000) {
+		$("code").html("哎哟。。手机浏览无法查看代码哦");
+		$(".post_share, .ds-thread").remove();
+		$(".logo").prop("href","javascript:;");
+	}
+
 });
 
 function ws(){
